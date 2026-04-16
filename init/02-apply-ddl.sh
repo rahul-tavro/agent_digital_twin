@@ -70,6 +70,14 @@ run_spark_sql_with_retry() {
   return 1
 }
 
+# Combine ALL sql files into one and run once
+echo "Applying all DDL in single Spark session..."
+cat "${WORK_DIR}/00-namespaces.sql" \
+    $(find "${WORK_DIR}" -type f -name "*.sql" ! -name "00-namespaces.sql" | sort) \
+    > "${WORK_DIR}/all-ddl.sql"
+
+run_spark_sql_with_retry "${WORK_DIR}/all-ddl.sql"
+
 echo "Applying namespace SQL..."
 run_spark_sql_with_retry "${WORK_DIR}/00-namespaces.sql"
 
