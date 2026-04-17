@@ -51,7 +51,7 @@ services:
       retries: 10
 
   ddl-init:
-    image: rahultavro148/agent-catalog-ddl-init:latest
+    image: ghcr.io/rahul-tavro/agent-catalog-docker:latest
     container_name: agent_catalog_ddl_init
     depends_on:
       minio-bootstrap:
