@@ -8,7 +8,7 @@ echo "
 ██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║   
 ██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║   
 ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝   
-        CATALOG DOCKER - QUICKSTART
+        AGENT CATALOG - QUICKSTART
 "
 
 # Check docker is installed
@@ -33,8 +33,7 @@ fi
 echo "✅ Docker is ready"
 echo ""
 echo "📦 Downloading docker-compose.yml..."
-
-curl -sSL https://raw.githubusercontent.com/rahultavro148/agent-catalog-docker/main/docker-compose.yml -o docker-compose.yml
+curl -sSL https://raw.githubusercontent.com/rahul-tavro/agent-catalog-docker/main/docker-compose.yml -o docker-compose.yml
 
 echo "🚀 Starting Agent Catalog..."
 docker compose up -d
@@ -69,6 +68,6 @@ if [ "$EXIT_CODE" = "0" ]; then
     echo "To reset:   docker compose down -v"
 else
     echo ""
-    echo "❌ Table creation failed. Check logs with:"
+    echo "❌ Table creation failed. Check logs:"
     echo "   docker logs agent_catalog_ddl_init"
 fi
