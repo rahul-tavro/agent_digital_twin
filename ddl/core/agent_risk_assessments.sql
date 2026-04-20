@@ -1,7 +1,6 @@
 CREATE TABLE IF NOT EXISTS catalog_core.agent_risk_assessments (
 	risk_assessment_id string,
 	agent_id string,
-	agent_internal_id string,
 	assessment_name string,
 	assessor_name string,
 	assessment_ts timestamp,
@@ -17,7 +16,9 @@ CREATE TABLE IF NOT EXISTS catalog_core.agent_risk_assessments (
 	valid_to_ts timestamp,
 	is_current boolean,
 	created_ts timestamp,
-	updated_ts timestamp
+	updated_ts timestamp,
+	agent_internal_id string,
+	summary string
 )
 PARTITIONED BY (day(created_ts))
 LOCATION 's3://{{S3_BUCKET}}/iceberg/core/agent_risk_assessments/'
@@ -26,4 +27,3 @@ TBLPROPERTIES (
 	'format' = 'parquet',
 	'write_compression' = 'snappy'
 );
-

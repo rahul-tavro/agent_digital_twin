@@ -4,7 +4,6 @@ CREATE TABLE IF NOT EXISTS catalog_raw.agent_card_json (
 	source_file_path string,
 	source_system string,
 	agent_id string,
-	agent_internal_id string,
 	card_version string,
 	payload_json_text string,
 	payload_hash string,
@@ -21,4 +20,3 @@ TBLPROPERTIES (
 	'format' = 'parquet',
 	'write_compression' = 'snappy'
 );
-

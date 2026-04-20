@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS catalog_core.agent_llm_models (
   agent_id string,
-  agent_internal_id string,
   name string,
   version_number string,
   created_ts timestamp,
-  updated_ts timestamp
+  updated_ts timestamp,
+  agent_internal_id string
 )
 PARTITIONED BY (day(created_ts))
 LOCATION 's3://{{S3_BUCKET}}/iceberg/core/agent_llm_models/'
@@ -13,4 +13,3 @@ TBLPROPERTIES (
   'format'='parquet',
   'write_compression'='snappy'
 );
-

@@ -61,6 +61,7 @@ if [ "$EXIT_CODE" = "0" ]; then
     echo "   - nessie.catalog_core"
     echo "   - nessie.catalog_curated"
     echo "   - nessie.catalog_raw"
+    echo "   - nessie.catalog_risk_management"
     echo ""
     echo "To stop:    docker compose down"
     echo "To reset:   docker compose down -v"

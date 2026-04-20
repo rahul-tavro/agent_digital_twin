@@ -1,6 +1,5 @@
 CREATE TABLE IF NOT EXISTS catalog_core.agent_knowledge_sources (
   agent_id string,
-  agent_internal_id string,
   identifier string,
   name string,
   access_mechanism string,
@@ -13,7 +12,8 @@ CREATE TABLE IF NOT EXISTS catalog_core.agent_knowledge_sources (
   owner string,
   status string,
   created_ts timestamp,
-  updated_ts timestamp
+  updated_ts timestamp,
+  agent_internal_id string
 )
 PARTITIONED BY (day(created_ts))
 LOCATION 's3://{{S3_BUCKET}}/iceberg/core/agent_knowledge_sources/'
@@ -22,4 +22,3 @@ TBLPROPERTIES (
   'format'='parquet',
   'write_compression'='snappy'
 );
-

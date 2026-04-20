@@ -1,13 +1,13 @@
 CREATE TABLE IF NOT EXISTS catalog_core.agent_governance_events (
 	governance_event_id string,
 	agent_id string,
-	agent_internal_id string,
 	event_type string,
 	event_ts timestamp,
 	actor_name string,
 	status string,
 	notes string,
-	created_ts timestamp
+	created_ts timestamp,
+	agent_internal_id string
 )
 PARTITIONED BY (day(created_ts))
 LOCATION 's3://{{S3_BUCKET}}/iceberg/core/agent_governance_events/'
@@ -16,4 +16,3 @@ TBLPROPERTIES (
 	'format' = 'parquet',
 	'write_compression' = 'snappy'
 );
-

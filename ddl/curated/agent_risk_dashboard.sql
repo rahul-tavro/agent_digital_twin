@@ -22,4 +22,3 @@ TBLPROPERTIES (
   'format'='parquet',
   'write_compression'='snappy'
 );
-

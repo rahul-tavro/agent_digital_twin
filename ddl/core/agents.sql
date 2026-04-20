@@ -1,6 +1,5 @@
 CREATE TABLE IF NOT EXISTS catalog_core.agents (
 	agent_id string,
-	agent_internal_id string,
 	agent_name string,
 	agent_description string,
 	protocol_version string,
@@ -14,7 +13,8 @@ CREATE TABLE IF NOT EXISTS catalog_core.agents (
 	valid_to_ts timestamp,
 	is_current boolean,
 	created_ts timestamp,
-	updated_ts timestamp
+	updated_ts timestamp,
+	agent_internal_id string
 )
 PARTITIONED BY (day(created_ts))
 LOCATION 's3://{{S3_BUCKET}}/iceberg/core/agents/'
@@ -23,4 +23,3 @@ TBLPROPERTIES (
 	'format' = 'parquet',
 	'write_compression' = 'snappy'
 );
-

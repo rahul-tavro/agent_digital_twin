@@ -53,6 +53,7 @@ if ($exitCode -eq "0") {
     Write-Host "   - nessie.catalog_core"
     Write-Host "   - nessie.catalog_curated"
     Write-Host "   - nessie.catalog_raw"
+    Write-Host "   - nessie.catalog_risk_management"
     Write-Host ""
     Write-Host "To stop:    docker compose down"
     Write-Host "To reset:   docker compose down -v"
