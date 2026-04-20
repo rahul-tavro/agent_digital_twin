@@ -1,12 +1,8 @@
-Write-Host "
- █████╗  ██████╗ ███████╗███╗   ██╗████████╗
-██╔══██╗██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝
-███████║██║  ███╗█████╗  ██╔██╗ ██║   ██║
-██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║
-██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║
-╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝
-        AGENT CATALOG - QUICKSTART
-"
+Write-Host ""
+Write-Host "=================================="
+Write-Host "   AGENT CATALOG - QUICKSTART"
+Write-Host "=================================="
+Write-Host ""
 
 # Check docker is installed
 if (!(Get-Command docker -ErrorAction SilentlyContinue)) {
