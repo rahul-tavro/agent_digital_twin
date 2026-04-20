@@ -1,0 +1,499 @@
+{
+    "capabilities": {
+        "streaming": null
+    },
+    "defaultInputModes": [
+        "text"
+    ],
+    "defaultOutputModes": [
+        "text"
+    ],
+    "name": "CC Service Agent",
+    "description": "Deliver personalized customer interactions with an autonomous AI agent. Agentforce Service Agent intelligently supports your customers with common inquiries and escalates complex issues.",
+    "preferredTransport": "JSONRPC",
+    "protocol_version": "0.3.0",
+    "instruction_sets": [
+        {
+            "identifier": "1C7NS000006MF8D0AW",
+            "name": "Instruction 1",
+            "description": null,
+            "trigger_condition": null,
+            "priority": null,
+            "instruction_text": "If a customer would like more information on Activities or Experiences, you should run the action 'Get Experience Details' and then summarize the results with improved readability. Always ensure you know the customer before running this action.",
+            "model_parameters_override": {
+                "temperature": null,
+                "rationale": null
+            }
+        },
+        {
+            "identifier": "1C7NS000006MF8E0AW",
+            "name": "Instruction 2",
+            "description": null,
+            "trigger_condition": null,
+            "priority": null,
+            "instruction_text": "If the customer is not known, you must always ask for their email address and their membership number to get their Contact record by running the action 'Get Customer Details' before running any other actions.",
+            "model_parameters_override": {
+                "temperature": null,
+                "rationale": null
+            }
+        },
+        {
+            "identifier": "1C7NS000006MF8F0AW",
+            "name": "Instruction 3",
+            "description": null,
+            "trigger_condition": null,
+            "priority": null,
+            "instruction_text": "Whenever a date is provided, convert the date to YYYY-MM-DD format and ensure that the date is not in the past before using it for the 'Get Sessions' action. If a past date is provided, explain to the client the date must be future.",
+            "model_parameters_override": {
+                "temperature": null,
+                "rationale": null
+            }
+        },
+        {
+            "identifier": "1C7NS000006MF8G0AW",
+            "name": "Instruction 4",
+            "description": null,
+            "trigger_condition": null,
+            "priority": null,
+            "instruction_text": "If asked to get sessions for the experience use the 'Get Sessions' action. Ask for the Date of the sessions if not provided. Use the Id of the Experience__c from the 'Get Experience Details'. Do not use the experience name, this must be an ID.",
+            "model_parameters_override": {
+                "temperature": null,
+                "rationale": null
+            }
+        },
+        {
+            "identifier": "1C7NS000006MF8H0AW",
+            "name": "Instruction 5",
+            "description": null,
+            "trigger_condition": null,
+            "priority": null,
+            "instruction_text": "If asked to book, use the action 'Create Booking'. The Contact__c is the contact ID from the 'Get Customer Details'. The Session__c is the ID of the session from the action 'Get Sessions'. If multiple sessions are present, ask to select one of the sessions and use that Session as the ID for the Session__c. Prompt for the Number of Guests and use that for the Number_of_Guests__c.",
+            "model_parameters_override": {
+                "temperature": null,
+                "rationale": null
+            }
+        },
+        {
+            "identifier": "1C7NS000006MF8I0AW",
+            "name": "Instruction 6",
+            "description": null,
+            "trigger_condition": null,
+            "priority": null,
+            "instruction_text": "If asked to recommend experiences that a user might be interested in, use the 'Generate Personalized Schedule' Action to generate a schedule based on a contacts interests. Use the contact record from 'Get Customer Details' and pass it into the Contact input.",
+            "model_parameters_override": {
+                "temperature": null,
+                "rationale": null
+            }
+        }
+    ],
+    "skills": [],
+    "topics": [
+        {
+            "identifier": "179NS000004BvOrYAK",
+            "name": "Experience Management",
+            "api_name": "Experience_Management_179NS000004BvOrYAK",
+            "description": "This topic addresses customer inquiries and issues related to booking experiences at Coral Cloud Resorts, including making reservations, modifying bookings, and answering queries about experience details.",
+            "scope": "The agent's job is to assist users in navigating and managing bookings for different experiences offered by Coral Cloud Resorts, ensuring a seamless customer service experience by providing accurate information and resolving issues promptly."
+        }
+    ],
+    "provider": {
+        "organization": "Salesforce",
+        "url": "https://orgfarm-72f92a9a5f-dev-ed.develop.my.salesforce.com"
+    },
+    "url": "https://orgfarm-72f92a9a5f-dev-ed.develop.my.salesforce.com",
+    "documentation_url": null,
+    "icon_url": null,
+    "security": null,
+    "security_schemes": null,
+    "signatures": null,
+    "supports_authenticated_extended_card": null,
+    "additional_interfaces": null,
+    "version": "1",
+    "identification": {
+        "agent_id": "0X9NS000006iZGL0A2",
+        "agent_internal_id": "69b0583c-6b87-449c-ac7a-7496185710f2",
+        "goal_orientation": null,
+        "role": null,
+        "instruction": null,
+        "owner": null,
+        "environment": null,
+        "tags": null,
+        "governance_status": null,
+        "reviewer": null,
+        "cost_center": null
+    },
+    "configuration": {
+        "access_scope": null,
+        "memory_type": null,
+        "data_freshness_policy": null,
+        "autonomy_level": null,
+        "reasoning_model": null
+    },
+    "ai_use_case": [
+        {
+            "identifier": null,
+            "name": null,
+            "description": null,
+            "proposed_by": null,
+            "owner": null,
+            "business_function": null,
+            "problem_statement": null,
+            "expected_benefits": null,
+            "priority": null,
+            "status": null
+        }
+    ],
+    "application": [
+        {
+            "identifier": null,
+            "name": null,
+            "description": null,
+            "business_criticality": null,
+            "emergency_tier": null
+        }
+    ],
+    "ai_model": [
+        {
+            "name": null,
+            "owner": null,
+            "department_executive": null,
+            "description": null
+        }
+    ],
+    "business_process": [
+        {
+            "identifier": null,
+            "name": null,
+            "description": null,
+            "business_criticality": null
+        }
+    ],
+    "physical_ai": [
+        {
+            "identifier": null,
+            "name": null,
+            "type": null,
+            "sensory_input_source": null
+        }
+    ],
+    "llm_model": [
+        {
+            "name": null,
+            "version_number": null
+        }
+    ],
+    "guardrail": {
+        "name": null,
+        "description": null,
+        "model": null
+    },
+    "mcp_server": {
+        "name": null,
+        "url": null,
+        "version_number": null
+    },
+    "tool": [
+        {
+            "identifier": "172NS00000ZcV3RYAV",
+            "name": "Get Experience Details",
+            "developer_name": "Get_Experience_Details_179NS000004BvOr",
+            "description": "Provides details about an Experience__c that a user would like more information about.",
+            "delegation_possible": null,
+            "allowed_delegates": null,
+            "parameter_name": null,
+            "parameter_type": "flow",
+            "default_value": null,
+            "input_schema": null,
+            "output_schema": null
+        },
+        {
+            "identifier": "172NS00000ZcVGLYA3",
+            "name": "Get Customer Details",
+            "developer_name": "Get_Customer_Details_179NS000004BvOr",
+            "description": "Validate a Customers details by passing their email and memberNumber to see if their is a related contact.",
+            "delegation_possible": null,
+            "allowed_delegates": null,
+            "parameter_name": null,
+            "parameter_type": "flow",
+            "default_value": null,
+            "input_schema": null,
+            "output_schema": null
+        },
+        {
+            "identifier": "172NS00000ZcVHxYAN",
+            "name": "Get Sessions",
+            "developer_name": "Get_Sessions_179NS000004BvOr",
+            "description": "Get the Sessions__c based on the provided specific Date and the Id of the Experience__c",
+            "delegation_possible": null,
+            "allowed_delegates": null,
+            "parameter_name": null,
+            "parameter_type": "flow",
+            "default_value": null,
+            "input_schema": null,
+            "output_schema": null
+        },
+        {
+            "identifier": "172NS00000ZcYEDYA3",
+            "name": "Generate Personalized Schedule",
+            "developer_name": "Generate_Personalized_Schedule_179NS000004BvOr",
+            "description": "Generate a personalized schedule that includes the time and location of resort experiences that are available today, and that match the guest's interests.",
+            "delegation_possible": null,
+            "allowed_delegates": null,
+            "parameter_name": null,
+            "parameter_type": "generatePromptResponse",
+            "default_value": null,
+            "input_schema": null,
+            "output_schema": null
+        },
+        {
+            "identifier": "172NS00000ZcYpJYAV",
+            "name": "Create Experience Session Booking",
+            "developer_name": "Create_Experience_Session_Booking_179NS000004BvOr",
+            "description": "This flow is used to create a Booking for a user that wants to attend an experience session. Each Experience__c has multiple Session__c records that each have a date and time allocated to them. A Contact Id needs to passed into the flow with a Session__c Id to create the booking. This flow also requires a number of guests.",
+            "delegation_possible": null,
+            "allowed_delegates": null,
+            "parameter_name": null,
+            "parameter_type": "flow",
+            "default_value": null,
+            "input_schema": null,
+            "output_schema": null
+        }
+    ],
+    "data_source": [
+        {
+            "relationship_id": null,
+            "parent_relationship_id": null,
+            "source_object_id": "0X9NS000006iZGL0A2",
+            "source_object_domain": "Salesforce",
+            "source_object_name": "CC Service Agent",
+            "source_object_type": "Agent",
+            "target_object_id": "179NS000004BvOrYAK",
+            "target_object_domain": "Salesforce",
+            "target_object_name": "Experience Management",
+            "target_object_type": "Topic",
+            "access_level": null,
+            "uses_pii": null,
+            "uses_phi": null,
+            "uses_pci": null
+        },
+        {
+            "relationship_id": null,
+            "parent_relationship_id": null,
+            "source_object_id": "179NS000004BvOrYAK",
+            "source_object_domain": "Salesforce",
+            "source_object_name": "Experience Management",
+            "source_object_type": "Topic",
+            "target_object_id": "1C7NS000006MF8D0AW",
+            "target_object_domain": "Salesforce",
+            "target_object_name": "Instruction 1",
+            "target_object_type": "InstructionSet",
+            "access_level": null,
+            "uses_pii": null,
+            "uses_phi": null,
+            "uses_pci": null
+        },
+        {
+            "relationship_id": null,
+            "parent_relationship_id": null,
+            "source_object_id": "179NS000004BvOrYAK",
+            "source_object_domain": "Salesforce",
+            "source_object_name": "Experience Management",
+            "source_object_type": "Topic",
+            "target_object_id": "1C7NS000006MF8E0AW",
+            "target_object_domain": "Salesforce",
+            "target_object_name": "Instruction 2",
+            "target_object_type": "InstructionSet",
+            "access_level": null,
+            "uses_pii": null,
+            "uses_phi": null,
+            "uses_pci": null
+        },
+        {
+            "relationship_id": null,
+            "parent_relationship_id": null,
+            "source_object_id": "179NS000004BvOrYAK",
+            "source_object_domain": "Salesforce",
+            "source_object_name": "Experience Management",
+            "source_object_type": "Topic",
+            "target_object_id": "1C7NS000006MF8F0AW",
+            "target_object_domain": "Salesforce",
+            "target_object_name": "Instruction 3",
+            "target_object_type": "InstructionSet",
+            "access_level": null,
+            "uses_pii": null,
+            "uses_phi": null,
+            "uses_pci": null
+        },
+        {
+            "relationship_id": null,
+            "parent_relationship_id": null,
+            "source_object_id": "179NS000004BvOrYAK",
+            "source_object_domain": "Salesforce",
+            "source_object_name": "Experience Management",
+            "source_object_type": "Topic",
+            "target_object_id": "1C7NS000006MF8G0AW",
+            "target_object_domain": "Salesforce",
+            "target_object_name": "Instruction 4",
+            "target_object_type": "InstructionSet",
+            "access_level": null,
+            "uses_pii": null,
+            "uses_phi": null,
+            "uses_pci": null
+        },
+        {
+            "relationship_id": null,
+            "parent_relationship_id": null,
+            "source_object_id": "179NS000004BvOrYAK",
+            "source_object_domain": "Salesforce",
+            "source_object_name": "Experience Management",
+            "source_object_type": "Topic",
+            "target_object_id": "1C7NS000006MF8H0AW",
+            "target_object_domain": "Salesforce",
+            "target_object_name": "Instruction 5",
+            "target_object_type": "InstructionSet",
+            "access_level": null,
+            "uses_pii": null,
+            "uses_phi": null,
+            "uses_pci": null
+        },
+        {
+            "relationship_id": null,
+            "parent_relationship_id": null,
+            "source_object_id": "179NS000004BvOrYAK",
+            "source_object_domain": "Salesforce",
+            "source_object_name": "Experience Management",
+            "source_object_type": "Topic",
+            "target_object_id": "1C7NS000006MF8I0AW",
+            "target_object_domain": "Salesforce",
+            "target_object_name": "Instruction 6",
+            "target_object_type": "InstructionSet",
+            "access_level": null,
+            "uses_pii": null,
+            "uses_phi": null,
+            "uses_pci": null
+        },
+        {
+            "relationship_id": null,
+            "parent_relationship_id": null,
+            "source_object_id": "179NS000004BvOrYAK",
+            "source_object_domain": "Salesforce",
+            "source_object_name": "Experience Management",
+            "source_object_type": "Topic",
+            "target_object_id": "172NS00000ZcV3RYAV",
+            "target_object_domain": "Salesforce",
+            "target_object_name": "Get Experience Details",
+            "target_object_type": "Tool",
+            "access_level": null,
+            "uses_pii": null,
+            "uses_phi": null,
+            "uses_pci": null
+        },
+        {
+            "relationship_id": null,
+            "parent_relationship_id": null,
+            "source_object_id": "179NS000004BvOrYAK",
+            "source_object_domain": "Salesforce",
+            "source_object_name": "Experience Management",
+            "source_object_type": "Topic",
+            "target_object_id": "172NS00000ZcVGLYA3",
+            "target_object_domain": "Salesforce",
+            "target_object_name": "Get Customer Details",
+            "target_object_type": "Tool",
+            "access_level": null,
+            "uses_pii": null,
+            "uses_phi": null,
+            "uses_pci": null
+        },
+        {
+            "relationship_id": null,
+            "parent_relationship_id": null,
+            "source_object_id": "179NS000004BvOrYAK",
+            "source_object_domain": "Salesforce",
+            "source_object_name": "Experience Management",
+            "source_object_type": "Topic",
+            "target_object_id": "172NS00000ZcVHxYAN",
+            "target_object_domain": "Salesforce",
+            "target_object_name": "Get Sessions",
+            "target_object_type": "Tool",
+            "access_level": null,
+            "uses_pii": null,
+            "uses_phi": null,
+            "uses_pci": null
+        },
+        {
+            "relationship_id": null,
+            "parent_relationship_id": null,
+            "source_object_id": "179NS000004BvOrYAK",
+            "source_object_domain": "Salesforce",
+            "source_object_name": "Experience Management",
+            "source_object_type": "Topic",
+            "target_object_id": "172NS00000ZcYEDYA3",
+            "target_object_domain": "Salesforce",
+            "target_object_name": "Generate Personalized Schedule",
+            "target_object_type": "Tool",
+            "access_level": null,
+            "uses_pii": null,
+            "uses_phi": null,
+            "uses_pci": null
+        },
+        {
+            "relationship_id": null,
+            "parent_relationship_id": null,
+            "source_object_id": "179NS000004BvOrYAK",
+            "source_object_domain": "Salesforce",
+            "source_object_name": "Experience Management",
+            "source_object_type": "Topic",
+            "target_object_id": "172NS00000ZcYpJYAV",
+            "target_object_domain": "Salesforce",
+            "target_object_name": "Create Experience Session Booking",
+            "target_object_type": "Tool",
+            "access_level": null,
+            "uses_pii": null,
+            "uses_phi": null,
+            "uses_pci": null
+        }
+    ],
+    "knowledge_source": {
+        "identifier": null,
+        "name": null,
+        "access_mechanism": null
+    },
+    "prompt_template": {
+        "identifier": null,
+        "name": null,
+        "description": null
+    },
+    "memory": {
+        "identifier": null,
+        "name": null,
+        "type": null
+    },
+    "regulation_or_framework": {
+        "name": null,
+        "type": null,
+        "regulatory_authority": null,
+        "jurisdiction": null,
+        "requirement": null
+    },
+    "control": [
+        {
+            "identifier": null,
+            "name": null,
+            "objective": null,
+            "domain": null
+        }
+    ],
+    "risk_assessment": {
+        "identifier": null,
+        "name": "",
+        "assessor": null,
+        "date": null,
+        "blended_risk_score": null,
+        "blended_risk_classification": null,
+        "aivss_score": null,
+        "aivss_classification": null,
+        "regulatory_risk_score": null,
+        "regulatory_risk_classification": null,
+        "state": null
+    }
+}
