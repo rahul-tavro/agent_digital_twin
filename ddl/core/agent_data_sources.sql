@@ -1,6 +1,5 @@
 CREATE TABLE IF NOT EXISTS catalog_core.agent_data_sources (
     agent_id string,
-	agent_internal_id string,
     access_level string,
     contains_pii boolean,
     contains_phi boolean,
@@ -16,7 +15,8 @@ CREATE TABLE IF NOT EXISTS catalog_core.agent_data_sources (
     target_object_id string,
     target_object_domain string,
     target_object_name string,
-    target_object_type string
+    target_object_type string,
+    agent_internal_id string
 )
 PARTITIONED BY (day(created_ts))
 LOCATION 's3://{{S3_BUCKET}}/iceberg/core/agent_data_sources/'

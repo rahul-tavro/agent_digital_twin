@@ -1,7 +1,6 @@
 CREATE TABLE IF NOT EXISTS catalog_core.agent_tools (
 	tool_id string,
 	agent_id string,
-	agent_internal_id string,
 	tool_name string,
 	tool_description string,
 	delegation_possible boolean,
@@ -10,7 +9,9 @@ CREATE TABLE IF NOT EXISTS catalog_core.agent_tools (
 	output_schema_json_text string,
 	default_config_json_text string,
 	created_ts timestamp,
-	updated_ts timestamp
+	updated_ts timestamp,
+	agent_internal_id string,
+	mcp_server_id string
 )
 PARTITIONED BY (day(created_ts))
 LOCATION 's3://{{S3_BUCKET}}/iceberg/core/agent_tools/'
@@ -19,4 +20,3 @@ TBLPROPERTIES (
 	'format' = 'parquet',
 	'write_compression' = 'snappy'
 );
-

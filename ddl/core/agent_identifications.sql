@@ -1,6 +1,5 @@
 CREATE TABLE IF NOT EXISTS catalog_core.agent_identifications (
   agent_id string,
-  agent_internal_id string,
   goal_orientation string,
   role string,
   instruction string,
@@ -12,7 +11,8 @@ CREATE TABLE IF NOT EXISTS catalog_core.agent_identifications (
   cost_center string,
   is_current boolean,
   created_ts timestamp,
-  updated_ts timestamp
+  updated_ts timestamp,
+  agent_internal_id string
 )
 PARTITIONED BY (day(created_ts))
 LOCATION 's3://{{S3_BUCKET}}/iceberg/core/agent_identifications/'
@@ -21,4 +21,3 @@ TBLPROPERTIES (
   'format'='parquet',
   'write_compression'='snappy'
 );
-

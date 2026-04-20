@@ -1,6 +1,5 @@
 CREATE TABLE IF NOT EXISTS catalog_curated.agent_360 (
     agent_id string,
-    agent_internal_id string,
     agent_name string,
     agent_description string,
     autonomy_level string,
@@ -19,7 +18,9 @@ CREATE TABLE IF NOT EXISTS catalog_curated.agent_360 (
     latest_risk_score decimal(10, 2),
     latest_risk_class string,
     latest_event_status string,
-    snapshot_ts timestamp
+    snapshot_ts timestamp,
+    agent_internal_id string,
+    summary string
 )
 PARTITIONED BY (day(snapshot_ts))
 LOCATION 's3://{{S3_BUCKET}}/iceberg/curated/agent_360/'
@@ -28,4 +29,3 @@ TBLPROPERTIES (
     'format'='parquet',
     'write_compression'='snappy'
 );
-
