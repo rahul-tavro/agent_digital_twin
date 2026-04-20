@@ -43,7 +43,6 @@ cat > "${WORK_DIR}/00-namespaces.sql" <<'SQL'
 CREATE NAMESPACE IF NOT EXISTS nessie.catalog_core;
 CREATE NAMESPACE IF NOT EXISTS nessie.catalog_curated;
 CREATE NAMESPACE IF NOT EXISTS nessie.catalog_raw;
-CREATE NAMESPACE IF NOT EXISTS nessie.catalog_risk_management;
 SQL
 
 # Transform all DDL files
